@@ -1,0 +1,22 @@
+module decoder_2t04_tb;
+   reg [1:0] a;
+   reg en;
+   wire [3:0] y;
+   decoder 2to4 uut (
+     .a(a),
+     .en(en).
+     .y(y)
+   );
+  
+  initial begin 
+    $dumpfile ("decoder_2to4_tb.vcd);
+               $dumpvars(0, decoder_2to4_tb);
+               $monitor("Time = %0t | Enable = %b | A = %b | Y = %b",$time,en,a,y);
+               en = 0; a=2'b00; #10
+               en = 1; a=2'b00; #10
+               en = 1; a=2'b10; #10
+               en = 1; a=2'b01; #10
+               en = 1; a=2'b11; #10
+               $finish();
+               end 
+               endmodule
