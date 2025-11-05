@@ -1,4 +1,4 @@
-Test bench
+
 
 module decoder_2to4_tb;
    reg [1:0] a;
